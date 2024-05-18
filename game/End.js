@@ -16,10 +16,12 @@ var createScene = function () {
     if(sceneManager.winCountPlayer1 > sceneManager.winCountPlayer2){
         playerWin(-4,0,-1);
         playerLoose(2,0,0);
+        trophy(-3.5,0,-1.5);
 
     }else{
         playerWin(2,0,-1);
         playerLoose(-4,0,0);
+        trophy(2.5,0,-1.5);
     }
 
     //scene.debugLayer.show();
@@ -106,6 +108,25 @@ function loadEndScene(x,y,z){
         let mesh = meshes[0];
        
         mesh.name ="EndScene"
+        
+       
+        mesh.position = new BABYLON.Vector3(x, y, z); // Positionne l'arbre aux 
+        
+        
+    
+      
+      
+    }, undefined, undefined, ".glb");
+
+}
+function trophy(x,y,z){
+    
+    BABYLON.SceneLoader.ImportMesh("", "./models/", "Trophy.glb", scene, (meshes) => {
+        console.log("Chargement réussi coliseum", meshes);
+     
+        let mesh = meshes[0];
+       
+        mesh.name ="playerWin"
         
        
         mesh.position = new BABYLON.Vector3(x, y, z); // Positionne l'arbre aux 

@@ -8,7 +8,7 @@ import * as menu from './Menu.js'
 
 let winCountPlayer1 =0;
 let winCountPlayer2 =0;
-// Fonction principale
+// Fonctions principales
 function Main() {
     
     // Appelez la fonction "launch" du module "level2" pour lancer la scène 2

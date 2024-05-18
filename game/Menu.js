@@ -50,33 +50,26 @@ function launch(){
 function displayMenu(){
 
 
-       // Création du GUI
-    advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI_button");
+  
     advancedTexture2 = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI_text");
-    // Création du bouton Play
-    const playButton = BABYLON.GUI.Button.CreateSimpleButton("playButton", "Play");
-    playButton.width = "150px";
-    playButton.height = "40px";
-    playButton.color = "white";
-    playButton.background = "grey";
-    playButton.onPointerClickObservable.add(function () {
-        // Mettre ici la logique pour le bouton Play
-        console.log("Play button clicked");
-        killLevel();
-        loadNextLevel();
-    });
-    advancedTexture.addControl(playButton);
+
+    button();
 
     
     // Création du texte en haut de la page
     const headerText = new BABYLON.GUI.TextBlock();
     headerText.text = "Les Jeux Olympiques Maudits";
     headerText.color = "white";
-    headerText.fontSize = 24;
+    headerText.fontSize = 100;
+    headerText.fontFamily = "UnifrakturCook";
+
+    headerText.fontFamily = "Pirata One"; // Utiliser la police Pirata One ici
     headerText.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
     headerText.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP; // Modifier cette ligne
-    headerText.paddingTop = "-400px"; // Ajout de 20px de padding en haut
+    headerText.paddingTop = "-500px"; // Ajout de 20px de padding en haut
     advancedTexture2.addControl(headerText);
+
+
 
 
   
@@ -107,7 +100,48 @@ function loadNextLevel(){
     sceneManager.launchLevel2();
 }
 
+function button(){
+    // Création du GUI
+advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI_button");
 
+
+// Création du bouton Play
+const playButton = BABYLON.GUI.Button.CreateSimpleButton("playButton", "Play");
+playButton.width = "150px";
+playButton.height = "80px";
+playButton.color = "white";
+playButton.cornerRadius = 20; // Coins arrondis
+playButton.background = "grey";
+
+// Style supplémentaire
+playButton.thickness = 2; // Épaisseur du contour
+playButton.shadowOffsetX = 4; // Décalage de l'ombre en X
+playButton.shadowOffsetY = 4; // Décalage de l'ombre en Y
+playButton.shadowColor = "#000000"; // Couleur de l'ombre
+playButton.shadowBlur = 8; // Flou de l'ombre
+
+// Ajouter une animation au survol
+playButton.pointerEnterAnimation = function () {
+    playButton.background = "white";
+    playButton.color = "grey";
+};
+playButton.pointerOutAnimation = function () {
+    playButton.background = "grey";
+    playButton.color = "white";
+};
+
+playButton.children[0].fontFamily = "UnifrakturCook";
+
+// Logique du bouton Play
+playButton.onPointerClickObservable.add(function () {
+    console.log("Play button clicked");
+    killLevel();
+    loadNextLevel();
+});
+
+advancedTexture.addControl(playButton);
+
+}
 
 
 export {  scene, launch };
