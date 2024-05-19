@@ -79,6 +79,7 @@ async function sceneData() {
 
     
     eventHandler(hk,player);
+    createSkyBox();
    return playerMesh;
 }
 
@@ -258,5 +259,20 @@ function hideControlUI(){
    level1.style.display = "none";
 
 }
+
+function createSkyBox(){
+
+    const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 1000.0 }, scene);
+    const skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+    skyboxMaterial.backFaceCulling = false;
+    skyboxMaterial.disableLighting = true;
+    skybox.material = skyboxMaterial;
+
+    skybox.infiniteDistance = true;
+    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("./models/skybox/skybox1/skybox", scene);
+    skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+   
+}
+
 
 export { name, scene, sceneData, launch,killLevel };

@@ -59,6 +59,8 @@ async function sceneData() {
     let player2 = new PlayerLevel2(scene,engine,"player2",'k','m',-14,20,0);
    //scene.debugLayer.show();
 
+   createSkyBox();
+
 }
 
 function launch() {
@@ -234,4 +236,17 @@ function displayControlUI(){
  
  }
 
+ function createSkyBox(){
+
+    const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 1000.0 }, scene);
+    const skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+    skyboxMaterial.backFaceCulling = false;
+    skyboxMaterial.disableLighting = true;
+    skybox.material = skyboxMaterial;
+
+    skybox.infiniteDistance = true;
+    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("./models/skybox/skybox3/skybox", scene);
+    skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+   
+}
 export { name, scene, sceneData, launch };
