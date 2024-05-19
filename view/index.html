@@ -12,8 +12,7 @@
     <script src="https://cdn.babylonjs.com/havok/HavokPhysics_umd.js"></script>
     <script src="https://cdn.babylonjs.com/gui/babylon.gui.js"></script>
     <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
       
 
@@ -49,11 +48,11 @@
             </div>
             <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                 <div style="flex-grow: 1; text-align: center;">
-                    <img style="width: 100px; height: auto;" src="https://i.ibb.co/BB0fg19/ZQSD.png" >
+                    <img style="width: 100px; height: auto;" src="https://i.ibb.co/QcJKJT6/file1.png" >
                 </div>
       
                <div style="flex-grow: 1; text-align: center;"> 
-                <img style="width: 100px; height: auto;" src="https://i.ibb.co/JcMygZ8/fleches-directionelles.jpg" alt="fleches-directionelles">
+                <img style="width: 100px; height: auto;" src="https://i.ibb.co/GPtZjzx/arrow-key-removebg-preview.png" alt="fleches-directionelles">
                 </div>
             </div>
         </div>
@@ -87,12 +86,12 @@
             </div>
             <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                 <div style="flex-grow: 1; text-align: center;">
-                    <p>Press "Shift" to Reload ball /  Press "Q" and "D" to Move / Press "Space bar to shoot"  </p>
+                    <p>Press "Shift" to Reload ball /  Press "Q" and "D" to Move / Press "Space bar"  to shoot  </p>
                     <h2 id="pin1">/93</h2>
                 </div>
       
                <div style="flex-grow: 1; text-align: center;"> 
-                <p>Press "Return" to Reload ball /  Press "RightArrow" and "LeftArrow" to Move / Press "Enter" bar to shoot  </p>
+                <p> Press "Return" to Reload ball /   Press "RightArrow" and "LeftArrow" to Move / Press "Enter" bar to shoot  </p>
                 <h2 id="pin2">/93</h2>
                 </div>
             </div>
@@ -100,10 +99,10 @@
 
         <div id="End" class="overlay" style="display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: 7%;">
             <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-                <h2 style="flex-grow: 1; text-align: center;">Player1</h2>
-                <h2 style="flex-grow: 1; text-align: center;">Player2</h2>
+                <h2 style="flex-grow: 1; text-align: center;margin-top: 10%;">Player1</h2>
+                <h2 style="flex-grow: 1; text-align: center;margin-top: 10%;">Player2</h2>
             </div>
-            
+            <button id="restart" style=" border-radius: 100%; "> Try Again ?</button>
         </div>
         
         
@@ -152,6 +151,11 @@
         // Rendre l'élément et son contenu invisibles
         level5.style.display = "none";
 
+        //restart
+        document.getElementById('restart').addEventListener('click', function() {
+            location.reload();
+        });
+
 
 
     </script>
@@ -183,6 +187,34 @@
 .overlay h1 {
     font-size: 48px;
 }
+
+</style>
+
+
+
+
+<style>
+    
+
+    #restart {
+        margin-left: 45%;
+        margin-top: 10%;
+        font-size: 18px;
+        width: 200px; /* Définir la largeur du bouton */
+        height: 50px; /* Définir la hauteur du bouton */
+        border-radius: 100%; /* Ceci rendra le bouton complètement rond */
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        text-transform: uppercase;
+        
+    }
+
+    #restart:hover {
+        background-color: #17a2b8; /* Bleu doux */
+        border-radius: 5%; /* Conserve le bord arrondi au survol */
+    }
+
+  
 
 </style>
 

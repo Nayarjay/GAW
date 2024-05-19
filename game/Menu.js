@@ -31,6 +31,7 @@ var createScene = function () {
 
     displayMenu();
     soundManager.initMusic();
+    createSkyBox();
 
 
     //scene.debugLayer.show();
@@ -141,6 +142,21 @@ playButton.onPointerClickObservable.add(function () {
 
 advancedTexture.addControl(playButton);
 
+}
+
+
+function createSkyBox(){
+
+    const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 100.0 }, scene);
+    const skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+    skyboxMaterial.backFaceCulling = false;
+    skyboxMaterial.disableLighting = true;
+    skybox.material = skyboxMaterial;
+
+    skybox.infiniteDistance = true;
+    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("./models/skybox/skybox", scene);
+    skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+   
 }
 
 
