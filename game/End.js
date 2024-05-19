@@ -28,6 +28,7 @@ var createScene = function () {
     displayControlUI();
     loadEndScene();
     soundManager.initMusic();
+    createSkyBox();   
     //hideControlUI();
     return scene;
 };
@@ -137,6 +138,20 @@ function trophy(x,y,z){
       
     }, undefined, undefined, ".glb");
 
+}
+
+function createSkyBox(){
+
+    const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 1000.0 }, scene);
+    const skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+    skyboxMaterial.backFaceCulling = false;
+    skyboxMaterial.disableLighting = true;
+    skybox.material = skyboxMaterial;
+
+    skybox.infiniteDistance = true;
+    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("./models/skybox/skybox1/skybox", scene);
+    skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+   
 }
 export {  scene, launch };
 
