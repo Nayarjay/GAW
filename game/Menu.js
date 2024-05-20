@@ -13,9 +13,10 @@ var canvas = document.getElementById("renderCanvas");
 var engine = new BABYLON.Engine(canvas, true);
 var scene = new BABYLON.Scene(engine);
 let soundManager = new SoundManager(scene,"Menu.mp3");
+//BABYLON.SceneLoader.ShowLoadingScreen = true; 
 
 var createScene = function () {
-    
+    BABYLON.SceneLoader.ShowLoadingScreen = true; 
     // GUI
     // Ajoutez une lumière
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
@@ -60,11 +61,11 @@ function displayMenu(){
     // Création du texte en haut de la page
     const headerText = new BABYLON.GUI.TextBlock();
     headerText.text = "Les Jeux Olympiques Maudits";
-    headerText.color = "white";
+    headerText.color = "black";
     headerText.fontSize = 100;
     headerText.fontFamily = "UnifrakturCook";
-
-    headerText.fontFamily = "Pirata One"; // Utiliser la police Pirata One ici
+   
+   // headerText.fontFamily = "Pirata One"; // Utiliser la police Pirata One ici
     headerText.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
     headerText.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP; // Modifier cette ligne
     headerText.paddingTop = "-500px"; // Ajout de 20px de padding en haut
@@ -125,6 +126,7 @@ playButton.shadowBlur = 8; // Flou de l'ombre
 playButton.pointerEnterAnimation = function () {
     playButton.background = "white";
     playButton.color = "grey";
+   
 };
 playButton.pointerOutAnimation = function () {
     playButton.background = "grey";
@@ -147,7 +149,7 @@ advancedTexture.addControl(playButton);
 
 function createSkyBox(){
 
-    const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 1000.0 }, scene);
+    const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 100.0 }, scene);
     const skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
     skyboxMaterial.backFaceCulling = false;
     skyboxMaterial.disableLighting = true;

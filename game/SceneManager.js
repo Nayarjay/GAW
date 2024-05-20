@@ -13,13 +13,13 @@ function Main() {
     
     // Appelez la fonction "launch" du module "level2" pour lancer la scène 2
     
-    //launchEnd();
+    launchEnd();
    
-    //launchLevel2();
+   // launchLevel2();
    //launchLevel3();
    //launchLevel4();
 
-    launchLevelMenu();
+    //launchLevelMenu();
     
 
    

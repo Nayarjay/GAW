@@ -794,7 +794,7 @@ export class CustomModels {
             return { boundingBox };
         }
 
-        Createlevel1(x, y, z) {
+        async Createlevel1(x, y, z) {
             let tree;
             let boundingBox;
             let tronc;

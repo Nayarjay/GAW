@@ -71,12 +71,12 @@ function launch() {
     //var camera = new BABYLON.FollowCamera("camera", new BABYLON.Vector3(0, 5, -10), scene);
     var camera = new BABYLON.FollowCamera("camera", new BABYLON.Vector3(0, 5, -10), scene);
     camera.cameraRotation = 0;
-    camera.viewport = new BABYLON.Viewport(0.5, 0, 0.5, 0.5);
+    camera.viewport = new BABYLON.Viewport(0.5, 0, 0.5, 1);
     
     
     var camera2 = new BABYLON.FollowCamera("camera2", new BABYLON.Vector3(-3, 5, -10), scene);
     camera2.cameraRotation = 0;
-    camera2.viewport = new BABYLON.Viewport(0, 0, 0.5, 0.5); 
+    camera2.viewport = new BABYLON.Viewport(0, 0, 0.5, 1); 
    
     //scene.activeCameras.push(camera);
     scene.activeCameras.push(camera2);

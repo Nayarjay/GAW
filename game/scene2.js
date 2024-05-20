@@ -7,7 +7,7 @@ import * as sceneManager from './SceneManager.js';
 import SoundManager from './SoundManager.js';
 let soundManager = new SoundManager(scene,"level1.mp3");
 let advancedTexture ;
-
+BABYLON.SceneLoader.ShowLoadingScreen = true; 
 var canvas = document.getElementById("renderCanvas");
 var engine = new BABYLON.Engine(canvas, true);
 var scene = new BABYLON.Scene(engine);
@@ -20,6 +20,7 @@ async function getInitializedHavok() {
 }
 
 async function sceneData() {
+    //BABYLON.SceneLoader.ShowLoadingScreen = true; 
     //displayControlUI();
     // Ajoutez une lumière hémisphériques
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
@@ -57,9 +58,6 @@ async function sceneData() {
 
    //testPlayer();
 
-   let player = new PlayerLevel1(scene,engine,'player1','z','s','q','d',5,170,0);
-
-   let player2 = new PlayerLevel1(scene,engine,'player2','ArrowUp','ArrowDown','ArrowLeft','ArrowRight',0,170,0);
 
     
    //montrer le layer
@@ -70,8 +68,13 @@ async function sceneData() {
     var place = new CustomModels(scene);
     //place.createFinalScene2(4,-24,-970);
    
-    place.Createlevel1(0,0,-800)
+    await place.Createlevel1(0,0,-800)
     
+
+    
+   let player = new PlayerLevel1(scene,engine,'player1','z','s','q','d',5,170,0);
+
+   let player2 = new PlayerLevel1(scene,engine,'player2','ArrowUp','ArrowDown','ArrowLeft','ArrowRight',0,170,0);
  
 
     
@@ -173,12 +176,13 @@ function launch() {
     
     var camera = new BABYLON.FollowCamera("camera", new BABYLON.Vector3(0, 5, -10), scene);
     camera.cameraRotation = 0;
-    camera.viewport = new BABYLON.Viewport(0, 0, 0.5, 0.5);
+    camera.viewport = new BABYLON.Viewport(0, 0, 0.5, 1); 
+
     
     
     var camera2 = new BABYLON.FollowCamera("camera2", new BABYLON.Vector3(0, 5, -10), scene);
     camera2.cameraRotation = 0;
-    camera2.viewport = new BABYLON.Viewport(0.5, 0, 0.5, 0.5); 
+    camera2.viewport = new BABYLON.Viewport(0.5, 0, 0.5, 1); 
    
     scene.activeCameras.push(camera);
     scene.activeCameras.push(camera2);

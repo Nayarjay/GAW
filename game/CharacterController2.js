@@ -60,14 +60,15 @@ class CharacterController2 {
                 //console.log(  animationGroup)
                //animationGroup[1].play();
             }
-            
+            /*
             if (isKeyPressed2) {
                 character.applyForce(new BABYLON.Vector3(0, 200, 0), new BABYLON.Vector3(0, 0, 0));
                 character.setAngularVelocity(new BABYLON.Vector3(0, 0, 0));
                 isKeyPressed2 = false;
                 //animationGroup[2].play();
             }
-
+            */
+           
             character.setAngularVelocity(new BABYLON.Vector3(0, 0, 0));
         });
     }
