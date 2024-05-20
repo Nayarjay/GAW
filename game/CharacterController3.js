@@ -1,11 +1,11 @@
 class CharacterController2 {
-    constructor(canvas, engine, character1, inputLeft, inputRight,inputJump,inputLaunch) {
+    constructor(canvas, engine, character1, inputLeft, inputRight,inputJump,inputLaunch,inputLeft2, inputRight2) {
         this.destroyed = false;
         this.action = false;
-        this.setupKeyboardInputPlayer(canvas, engine, character1, inputLeft, inputRight,inputJump,inputLaunch);
+        this.setupKeyboardInputPlayer(canvas, engine, character1, inputLeft, inputRight,inputJump,inputLaunch,inputLeft2, inputRight2);
     }
 
-    setupKeyboardInputPlayer(canvas, engine, character, input1,input2, inputJump,inputLaunch) {
+    setupKeyboardInputPlayer(canvas, engine, character, input1,input2, inputJump,inputLaunch,inputLeft2, inputRight2) {
         this.keys = {};
         let isKeyPressed = false;
         let isKeyPressed2 = false;
@@ -28,14 +28,14 @@ class CharacterController2 {
         engine.runRenderLoop(() => {
           
             if(!this.destroyed){
-                if (this.keys[input1] ) {
+                if (this.keys[input1] ||this.keys[inputLeft2] ) {
                     //console.log('Touche gauche enfoncée');
                     character.applyForce(new BABYLON.Vector3(5*2, 0, 0), new BABYLON.Vector3(0, 0, 0));
                     character.setAngularVelocity(BABYLON.Vector3.ZeroReadOnly);
             
                 }
 
-                if (this.keys[input2] ) {
+                if (this.keys[input2] ||this.keys[inputRight2]) {
                     //console.log('Touche Droite enfoncée');
                     character.applyForce(new BABYLON.Vector3(-5*2, 0, 0), new BABYLON.Vector3(0, 0, 0));
                     character.setAngularVelocity(BABYLON.Vector3.ZeroReadOnly);

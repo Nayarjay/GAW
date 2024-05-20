@@ -58,7 +58,7 @@ async function sceneData() {
 
  
    // console.log(countPlayer1);
-     player1 = new PlayerLevel3(scene,engine,"player1",'q','d','s',' ',0,8,-8);
+     player1 = new PlayerLevel3(scene,engine,"player1",'q','d','s',' ',0,8,-8,'d','a');
      player2 = new PlayerLevel3(scene,engine,"player2",'ArrowLeft','ArrowRight','i','Enter',25,8,-8);
 
      //let pin = new BowlingPin(scene,0,2,19.397);
@@ -550,7 +550,7 @@ function respawnPlayerInput() {
             let ball1 = scene.getMeshByName("player1");
             player1.disableThisObject();
             ball1.dispose();
-            player1 = new PlayerLevel3(scene,engine,"player1",'q','d','s',' ',0,8,-8);
+            player1 = new PlayerLevel3(scene,engine,"player1",'q','d','s',' ',0,8,-8,'d','a');
             
         //document.getElementById("pin1").innerText = countPlayer1+"/93 PINS";
         

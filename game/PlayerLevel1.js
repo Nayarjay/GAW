@@ -9,13 +9,13 @@ var canvas2 = document.getElementById("renderCanvas");
 
 export class PlayerLevel1 {
 
-    constructor(scene,engine,name,forward,backward,left,right,x,y,z) {
+    constructor(scene,engine,name,forward,backward,left,right,x,y,z,forward2,backward2,left2,right2) {
         this.scene = scene;
         this.engine = engine;
         this.boxBody ;
 
         this.testPlayer(scene,engine,name,x,y,z);
-        this.enablePlayerControl(forward,backward,left,right);
+        this.enablePlayerControl(forward,backward,left,right,forward2,backward2,left2,right2);
      
     }
     
@@ -74,8 +74,8 @@ export class PlayerLevel1 {
     }
   
  
-    enablePlayerControl(forward,backward,left,right){
-       let control = new CharacterController(canvas2,this.engine,this.boxBody,forward,backward,left,right);
+    enablePlayerControl(forward,backward,left,right,forward2,backward2,left2,right2){
+       let control = new CharacterController(canvas2,this.engine,this.boxBody,forward,backward,left,right,forward2,backward2,left2,right2);
     }
     
 

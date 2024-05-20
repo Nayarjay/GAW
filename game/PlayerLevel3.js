@@ -10,7 +10,7 @@ var canvas2 = document.getElementById("renderCanvas");
 
 export class PlayerLevel3 {
 
-    constructor(scene,engine,name,left,right,jump,action,x,y,z) {
+    constructor(scene,engine,name,left,right,jump,action,x,y,z,inputLeft2, inputRight2) {
         this.control;
         this.scene = scene;
         this.engine = engine;
@@ -23,7 +23,7 @@ export class PlayerLevel3 {
       
         this.shootBall(left,right,jump,action,x,y,z);
     
-        this.enablePlayerControl(left,right,jump,action);
+        this.enablePlayerControl(left,right,jump,action,inputLeft2, inputRight2);
 
         
      
@@ -72,9 +72,9 @@ export class PlayerLevel3 {
     }
   
  
-    enablePlayerControl(inputLeft,inputRight,jump,action){
+    enablePlayerControl(inputLeft,inputRight,jump,action,inputLeft2, inputRight2){
 
-        let control2 = new CharacterController3(canvas2,this.engine,this.sphereBody, inputRight,inputLeft,jump,action);
+        let control2 = new CharacterController3(canvas2,this.engine,this.sphereBody, inputRight,inputLeft,jump,action,inputLeft2, inputRight2);
         this.control = control2;
      
       
