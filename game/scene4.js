@@ -242,34 +242,6 @@ function eventHandler(hk,player1,player2){
 
 
 
-function pinsCount(hk){
-
-    hk.onCollisionObservable.add((ev) => {
-        //console.log(ev.type);
-        //console.log(ev.type, ':', ev.collider.transformNode.name, '-', ev.collidedAgainst.transformNode.name);
-       //check if Pin is collided add count to counter of the player
-   
-       if(ev.collidedAgainst.transformNode.name =="Pin" ){
-            //console.log("YOU collide a pin");
-            let uniqueId =ev.collidedAgainst.transformNode.uniqueId;
-            //console.log(ev.collidedAgainst.transformNode.uniqueId);
-            //list.push();
-            if(ev.collider.transformNode.name == "player2"){
-
-                //console.log("player1 IS ON THE PLACE")
-
-                testSearch(uniqueId);
-              
-                countPlayer1++;
-                //console.log(countPlayer1);
-                
-            }
-      
-        }
-});
-
-}
-
 async function testSearch(listeQuilles1,countPlayer,playerText){
 
  
@@ -301,16 +273,17 @@ async function testSearch(listeQuilles1,countPlayer,playerText){
   
         if(countPlayer1 >=93){
             sceneManager.setcountPlayer1()
-            console.log("PLAYER1:"+sceneManager.winCountPlayer1)
-            console.log("PLAYER2:"+sceneManager.winCountPlayer2)
+            //console.log("PLAYER1:"+sceneManager.winCountPlayer1)
+            //console.log("PLAYER2:"+sceneManager.winCountPlayer2)
         }
         
       
    
-        if(countPlayer1 >= 93 ||countPlayer2 >= 93){
+        if(countPlayer1 >= 93 ){
             killLevel();
             loadNextLevel();
         }
+       
 
         // Utiliser setInterval pour appeler la fonction de mise à jour à intervalles réguliers (par exemple, toutes les 1000 millisecondes)
         //setInterval(updateCountPins, 1000); //
@@ -356,12 +329,12 @@ async function testSearch2(listeQuilles1,countPlayer,playerText){
      
         if(countPlayer2 >92){
             sceneManager.setcountPlayer2()
-            console.log("PLAYER1:"+sceneManager.winCountPlayer1)
-            console.log("PLAYER2"+sceneManager.winCountPlayer2)
+            //console.log("PLAYER1:"+sceneManager.winCountPlayer1)
+            //console.log("PLAYER2"+sceneManager.winCountPlayer2)
 
         }
    
-        if(countPlayer1 >= 93 ||countPlayer2 >= 93){
+        if(countPlayer2 >= 93){
             killLevel();
             loadNextLevel();
         }
@@ -604,24 +577,6 @@ function respawnPlayerInput() {
 }
 
 
-function displayPinNumber(){
-    
-     advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
-
-    var button1 = BABYLON.GUI.Button.CreateSimpleButton("but1", "Click Me");
-    button1.width = "1000px"
-    button1.height = "40px";
-    button1.color = "white";
-    button1.cornerRadius = 20;
-    button1.background = "green";
-    button1.onPointerUpObservable.add(function() {
-        alert("you did it!");
-    });
-    advancedTexture.addControl(button1);   
-    
-    
-
-}
 
 function loadNextLevel(){
     

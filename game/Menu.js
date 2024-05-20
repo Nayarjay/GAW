@@ -13,10 +13,10 @@ var canvas = document.getElementById("renderCanvas");
 var engine = new BABYLON.Engine(canvas, true);
 var scene = new BABYLON.Scene(engine);
 let soundManager = new SoundManager(scene,"Menu.mp3");
-//BABYLON.SceneLoader.ShowLoadingScreen = true; 
+
 
 var createScene = function () {
-    BABYLON.SceneLoader.ShowLoadingScreen = true; 
+
     // GUI
     // Ajoutez une lumière
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
@@ -25,7 +25,7 @@ var createScene = function () {
     const camera = new BABYLON.FreeCamera('camera', new BABYLON.Vector3(0, 8, -50), scene);
     //camera.attachControl()
   
-   
+   //screen();
 
     let menu = new CustomModels(scene);
     menu.CreateMenu3dScene(0,0,0);
@@ -99,7 +99,8 @@ function killLevel(player){
 }
 
 function loadNextLevel(){
-    sceneManager.launchLevel2();
+    //sceneManager.launchLevel2();
+    sceneManager.launchStart();
 }
 
 function button(){
@@ -159,6 +160,29 @@ function createSkyBox(){
     skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("./models/skybox/skybox1/skybox", scene);
     skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
    
+}
+
+
+function screen(){
+    var planeOpts = {
+        height: 80,
+        width: 80,
+        sideOrientation: BABYLON.Mesh.DOUBLESIDE
+    };
+
+    // Création de l'avion
+    var videoPlane = BABYLON.MeshBuilder.CreatePlane("plane", planeOpts, scene);
+    videoPlane.position = new BABYLON.Vector3(0, 0, 0);
+
+    
+    // Création du matériau vidéo
+    var videoMaterial = new BABYLON.StandardMaterial("m", scene);
+    var videoTexture = new BABYLON.VideoTexture("vidtex", "video/Loading.mp4", scene);
+    videoMaterial.diffuseTexture = videoTexture;
+    videoMaterial.roughness = 1;
+    videoMaterial.emissiveColor = new BABYLON.Color3.White();
+    videoPlane.material = videoMaterial;
+    
 }
 
 

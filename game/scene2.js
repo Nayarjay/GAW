@@ -171,46 +171,42 @@ function eventHandler(hk,player){
     });
 }
 
-function launch() {
- 
-    
+async function launch() {
     var camera = new BABYLON.FollowCamera("camera", new BABYLON.Vector3(0, 5, -10), scene);
     camera.cameraRotation = 0;
     camera.viewport = new BABYLON.Viewport(0, 0, 0.5, 1); 
-
-    
     
     var camera2 = new BABYLON.FollowCamera("camera2", new BABYLON.Vector3(0, 5, -10), scene);
     camera2.cameraRotation = 0;
     camera2.viewport = new BABYLON.Viewport(0.5, 0, 0.5, 1); 
-   
+
     scene.activeCameras.push(camera);
     scene.activeCameras.push(camera2);
 
-    //cam1
     sceneData().then(playerMesh => {
         let playerMesh2 = scene.getMeshByName("player2");
         console.log(playerMesh); // Utilisez playerMesh comme nécessaire
         
         camera.lockedTarget = playerMesh;
         camera2.lockedTarget = playerMesh2;
+
+        // Lancer le rendu une fois que la scène est prête
+        scene.executeWhenReady(() => {
+            engine.runRenderLoop(function () {
+                scene.render();
+            });
+        });
         
     }).catch(error => {
         console.error(error);
     });
 
-    
-       
- 
-    engine.runRenderLoop(function () {
-       //console.log(value)
-       scene.render();
-       
-     
+    // Afficher l'écran de chargement de Babylon.js
+    scene.executeWhenReady(() => {
+        BABYLON.SceneLoader.ShowLoadingScreen = true;
     });
-    
-   
 }
+
 function killLevel(player){
     //scene.dispose();
      
