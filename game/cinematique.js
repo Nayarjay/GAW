@@ -24,10 +24,11 @@ var createScene = function () {
   
     // Création d'une caméra
         const camera = new BABYLON.FreeCamera('camera', new BABYLON.Vector3(0, 8, -50), scene);
-        camera.attachControl()
+        //camera.attachControl()
     screen();
      // Attendre quelques secondes avant de charger le niveau suivant
     setTimeout(function () {
+        soundManager.destroy();
         loadNextLevel();
     }, 21000); 
     //loadNextLevel();
@@ -95,7 +96,7 @@ function launch(){
 
 }
 function loadNextLevel(){
-    soundManager.stopMusic();
+    
     killLevel();
     sceneManager.launchLevel2();
 }
@@ -114,7 +115,8 @@ function killLevel(player){
     scene.lights.forEach(function(light) {
         light.dispose();
     });
-
+    soundManager.stopMusic();
+    soundManager.destroy();
     engine.stopRenderLoop();
  
 }

@@ -226,6 +226,7 @@ function killLevel(player){
     engine.stopRenderLoop();
     hideControlUI();
     soundManager.stopMusic();
+
 }
 
 function reloadlevel(){
@@ -237,7 +238,7 @@ function reloadlevel(){
 }
 
 function loadNextLevel(){
-    
+    soundManager.destroy();
     sceneManager.launchLevel3();
 
 }

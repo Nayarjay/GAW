@@ -14,9 +14,10 @@ var engine = new BABYLON.Engine(canvas, true);
 var scene = new BABYLON.Scene(engine);
 let soundManager = new SoundManager(scene,"Menu.mp3");
 
-
+//
 var createScene = function () {
-
+    soundManager.initMusic();
+  
     // GUI
     // Ajoutez une lumière
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
@@ -31,14 +32,15 @@ var createScene = function () {
     menu.CreateMenu3dScene(0,0,0);
 
     displayMenu();
-    soundManager.initMusic();
+   
     createSkyBox();
 
-
+    //createMusicButton();
     //scene.debugLayer.show();
     return scene;
 };
 function launch(){
+
     createScene();
 
     engine.runRenderLoop(function () {
@@ -96,10 +98,12 @@ function killLevel(player){
     advancedTexture.dispose();
     engine.stopRenderLoop();
     soundManager.stopMusic();
+    soundManager.destroy();
 }
 
 function loadNextLevel(){
     //sceneManager.launchLevel2();
+    soundManager.stopMusic();
     sceneManager.launchStart();
 }
 
@@ -140,6 +144,7 @@ playButton.children[0].fontFamily = "UnifrakturCook";
 playButton.onPointerClickObservable.add(function () {
     console.log("Play button clicked");
     killLevel();
+    soundManager.stopMusic();
     loadNextLevel();
 });
 
@@ -183,6 +188,27 @@ function screen(){
     videoMaterial.emissiveColor = new BABYLON.Color3.White();
     videoPlane.material = videoMaterial;
     
+}
+
+// Fonction pour créer le bouton de contrôle de la musique
+function createMusicButton() {
+    const musicButton = BABYLON.GUI.Button.CreateSimpleButton("musicButton", "Music");
+    musicButton.width = "100px";
+    musicButton.height = "50px";
+    musicButton.color = "white";
+    musicButton.background = "blue";
+    musicButton.left = "-700px"; // Position en haut à gauche
+    musicButton.top = "300px";
+    musicButton.cornerRadius = 10;
+
+    // Logique du bouton Music
+    musicButton.onPointerClickObservable.add(function () {
+        // Ajoutez ici la logique pour activer/désactiver la musique
+        soundManager.initMusic();
+        console.log("Music button clicked");
+    });
+
+    advancedTexture.addControl(musicButton);
 }
 
 

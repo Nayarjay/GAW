@@ -602,6 +602,7 @@ function killLevel(){
     engine.stopRenderLoop();
     hideControlUI();
     soundManager.stopMusic();
+    soundManager.destroy();
 }
 
 function displayControlUI(){
