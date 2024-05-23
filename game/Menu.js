@@ -16,10 +16,10 @@ let soundManager = new SoundManager(scene,"Menu.mp3");
 
 //
 var createScene = function () {
-    soundManager.initMusic();
+
   
     defaultLoadingScreen();
-    
+
 
    
     // GUI
@@ -29,7 +29,7 @@ var createScene = function () {
    // Création d'une caméra
     const camera = new BABYLON.FreeCamera('camera', new BABYLON.Vector3(46, 4, -76), scene);
     camera.setTarget(new BABYLON.Vector3(46, 4.2, -75));
-    camera.attachControl()
+    //camera.attachControl()
   
    //screen();
 
@@ -196,32 +196,14 @@ function screen(){
     
 }
 
-// Fonction pour créer le bouton de contrôle de la musique
-function createMusicButton() {
-    const musicButton = BABYLON.GUI.Button.CreateSimpleButton("musicButton", "Music");
-    musicButton.width = "100px";
-    musicButton.height = "50px";
-    musicButton.color = "white";
-    musicButton.background = "blue";
-    musicButton.left = "-700px"; // Position en haut à gauche
-    musicButton.top = "300px";
-    musicButton.cornerRadius = 10;
 
-    // Logique du bouton Music
-    musicButton.onPointerClickObservable.add(function () {
-        // Ajoutez ici la logique pour activer/désactiver la musique
-        soundManager.initMusic();
-        console.log("Music button clicked");
-    });
-
-    advancedTexture.addControl(musicButton);
-}
 function defaultLoadingScreen(){
     engine.displayLoadingUI();
 
     scene.executeWhenReady(function () {
         setTimeout(function () {
             engine.hideLoadingUI();
+            soundManager.initMusic();
         }, 5000); // 5000 millisecondes = 5 secondes
     });
 
