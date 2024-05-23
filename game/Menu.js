@@ -28,7 +28,8 @@ var createScene = function () {
 
    // Création d'une caméra
     const camera = new BABYLON.FreeCamera('camera', new BABYLON.Vector3(46, 4, -76), scene);
-    //camera.attachControl()
+    camera.setTarget(new BABYLON.Vector3(46, 4.2, -75));
+    camera.attachControl()
   
    //screen();
 
