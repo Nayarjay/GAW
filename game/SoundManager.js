@@ -14,7 +14,7 @@ class SoundManager {
             });
         };
 
-        window.addEventListener('click', () => {
+        window.addEventListener('mousemove', () => {
             if (BABYLON.Engine.audioEngine.audioContext.state === 'suspended') {
                 BABYLON.Engine.audioEngine.audioContext.resume().then(() => {
                     music();
@@ -36,7 +36,7 @@ class SoundManager {
         this.stopMusic();
         
         // Supprime l'écouteur d'événement
-        window.removeEventListener('click', this.clickHandler);
+        window.removeEventListener('mousemove', this.clickHandler);
 
         // Réinitialise les propriétés à null ou undefined pour faciliter la libération de la mémoire par le garbage collector
         this.scene = null;
