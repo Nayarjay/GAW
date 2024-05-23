@@ -18,12 +18,16 @@ let soundManager = new SoundManager(scene,"Menu.mp3");
 var createScene = function () {
     soundManager.initMusic();
   
+    defaultLoadingScreen();
+    
+
+   
     // GUI
     // Ajoutez une lumière
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
 
    // Création d'une caméra
-    const camera = new BABYLON.FreeCamera('camera', new BABYLON.Vector3(0, 8, -50), scene);
+    const camera = new BABYLON.FreeCamera('camera', new BABYLON.Vector3(46, 4, -76), scene);
     //camera.attachControl()
   
    //screen();
@@ -34,6 +38,7 @@ var createScene = function () {
     displayMenu();
    
     createSkyBox();
+ 
 
     //createMusicButton();
     //scene.debugLayer.show();
@@ -155,7 +160,7 @@ advancedTexture.addControl(playButton);
 
 function createSkyBox(){
 
-    const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 100.0 }, scene);
+    const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 1000.0 }, scene);
     const skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
     skyboxMaterial.backFaceCulling = false;
     skyboxMaterial.disableLighting = true;
@@ -209,6 +214,16 @@ function createMusicButton() {
     });
 
     advancedTexture.addControl(musicButton);
+}
+function defaultLoadingScreen(){
+    engine.displayLoadingUI();
+
+    scene.executeWhenReady(function () {
+        setTimeout(function () {
+            engine.hideLoadingUI();
+        }, 5000); // 5000 millisecondes = 5 secondes
+    });
+
 }
 
 

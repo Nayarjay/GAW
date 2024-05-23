@@ -20,8 +20,7 @@ async function getInitializedHavok() {
 }
 
 async function sceneData() {
-    //BABYLON.SceneLoader.ShowLoadingScreen = true; 
-    //displayControlUI();
+   
     // Ajoutez une lumière hémisphériques
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
 
@@ -29,7 +28,7 @@ async function sceneData() {
     const havokInstance = await HavokPhysics();
     // pass the engine to the plugin
     const hk = new BABYLON.HavokPlugin(true, havokInstance);
-   
+    defaultLoadingScreen();
     
 
     scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0),  hk);
@@ -274,6 +273,17 @@ function createSkyBox(){
     skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
    
 }
+function defaultLoadingScreen(){
+    engine.displayLoadingUI();
+
+    scene.executeWhenReady(function () {
+        setTimeout(function () {
+            engine.hideLoadingUI();
+        }, 5000); // 5000 millisecondes = 5 secondes
+    });
+
+}
+
 
 
 export { name, scene, sceneData, launch,killLevel };

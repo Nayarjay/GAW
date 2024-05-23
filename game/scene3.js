@@ -15,7 +15,7 @@ async function getInitializedHavok() {
 
 async function sceneData() {
     //activer la physique sur la scene 
-
+    defaultLoadingScreen();
     const havokInstance = await HavokPhysics();
     soundManager.initMusic();
 
@@ -250,4 +250,16 @@ function displayControlUI(){
     skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
    
 }
+
+function defaultLoadingScreen(){
+    engine.displayLoadingUI();
+
+    scene.executeWhenReady(function () {
+        setTimeout(function () {
+            engine.hideLoadingUI();
+        }, 5000); // 5000 millisecondes = 5 secondes
+    });
+
+}
+
 export { name, scene, sceneData, launch };

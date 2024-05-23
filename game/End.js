@@ -8,6 +8,7 @@ var scene = new BABYLON.Scene(engine);
 let soundManager = new SoundManager(scene,"End.mp3");
 
 var createScene = function () {
+    defaultLoadingScreen();
     // Ajoutez une lumière
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
     var camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(0, 4, -12.5), scene);
@@ -25,7 +26,7 @@ var createScene = function () {
     }
 
     //scene.debugLayer.show();
-    displayControlUI();
+    //displayControlUI();
     loadEndScene();
     soundManager.initMusic();
     createSkyBox();   
@@ -153,5 +154,17 @@ function createSkyBox(){
     skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
    
 }
+function defaultLoadingScreen(){
+    engine.displayLoadingUI();
+
+    scene.executeWhenReady(function () {
+        setTimeout(function () {
+            engine.hideLoadingUI();
+            displayControlUI();
+        }, 5000); // 5000 millisecondes = 5 secondes
+    });
+
+}
+
 export {  scene, launch };
 

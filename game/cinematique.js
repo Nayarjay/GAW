@@ -56,7 +56,7 @@ async function screen(){
 
     // Création du matériau vidéo
     var videoMaterial = new BABYLON.StandardMaterial("m", scene);
-    var videoTexture = new BABYLON.VideoTexture("vidtex", "video/scrawl text.mp4", scene, true, false, videoTextureOptions);
+    var videoTexture = new BABYLON.VideoTexture("vidtex", "./models/video/scrawl text.mp4", scene, true, false, videoTextureOptions);
     videoMaterial.diffuseTexture = videoTexture;
     videoMaterial.roughness = 1;
     videoMaterial.emissiveColor = new BABYLON.Color3.White();
@@ -69,19 +69,11 @@ async function screen(){
     var canvas = document.getElementById('renderCanvas');
     canvas.addEventListener('click', function() {
         // Désactiver le mode muet et redémarrer la vidéo
-        videoTexture.video.muted = false;
-        videoTexture.video.play().then(() => {
-            console.log("Video is playing with sound.");
-        }).catch((error) => {
-            console.error("Error attempting to play the video with sound:", error);
-        });
+        videoTexture.video.muted = true;
+        videoTexture.video.play();
     });
 
-    // Gestionnaire d'événement pour détecter la fin de la vidéo
-    videoTexture.video.addEventListener('ended', function() {
-        console.log("Video has ended.");
-        // Ajouter ici toute action à effectuer lorsque la vidéo se termine
-    });
+
 }
 
 

@@ -49,7 +49,7 @@ export class PlayerLevel2 {
         var boxBody = new BABYLON.PhysicsBody(box, BABYLON.PhysicsMotionType.DYNAMIC, false, this.scene);
         this.boxBody = boxBody;
         boxBody.shape = boxShape;
-        boxBody.setMassProperties({mass : 1})
+        boxBody.setMassProperties({mass : 1.5})
     
     
         //add create material add tothe cube
