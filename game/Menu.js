@@ -64,7 +64,7 @@ function displayMenu(){
     advancedTexture2 = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI_text");
 
     button();
-
+    buttonCredit();
     
     // Création du texte en haut de la page
     const headerText = new BABYLON.GUI.TextBlock();
@@ -113,6 +113,12 @@ function loadNextLevel(){
     sceneManager.launchStart();
 }
 
+function loadCredits(){
+    //sceneManager.launchLevel2();
+    soundManager.stopMusic();
+    sceneManager.launchCredit();
+}
+
 function button(){
     // Création du GUI
 advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI_button");
@@ -157,6 +163,53 @@ playButton.onPointerClickObservable.add(function () {
 advancedTexture.addControl(playButton);
 
 }
+
+function buttonCredit(){
+    // Création du GUI
+//advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI_button");
+
+
+// Création du bouton Play
+const playButton = BABYLON.GUI.Button.CreateSimpleButton("playButton", "C r e d i t s");
+playButton.width = "150px";
+playButton.height = "80px";
+playButton.color = "white";
+playButton.cornerRadius = 20; // Coins arrondis
+playButton.background = "grey";
+playButton.top = "100px";
+
+// Style supplémentaire
+playButton.thickness = 2; // Épaisseur du contour
+playButton.shadowOffsetX = 4; // Décalage de l'ombre en X
+playButton.shadowOffsetY = 4; // Décalage de l'ombre en Y
+playButton.shadowColor = "#000000"; // Couleur de l'ombre
+playButton.shadowBlur = 8; // Flou de l'ombre
+
+// Ajouter une animation au survol
+playButton.pointerEnterAnimation = function () {
+    playButton.background = "white";
+    playButton.color = "grey";
+   
+};
+playButton.pointerOutAnimation = function () {
+    playButton.background = "grey";
+    playButton.color = "white";
+};
+
+playButton.children[0].fontFamily = "UnifrakturCook";
+
+// Logique du bouton Play
+playButton.onPointerClickObservable.add(function () {
+    console.log("Play button clicked");
+    killLevel();
+    soundManager.stopMusic();
+    loadCredits();
+});
+
+advancedTexture.addControl(playButton);
+
+}
+
 
 
 function createSkyBox(){

@@ -4,6 +4,7 @@ import * as end from './End.js';
 import * as scene2 from './scene2.js'
 import * as scene3 from './scene3.js'
 import * as scene4 from './scene4.js'
+import * as credit from './cinematique_credit.js'
 import * as menu from './Menu.js'
 
 let winCountPlayer1 =0;
@@ -18,7 +19,7 @@ function Main() {
     //launchLevel2();
    //launchLevel3();
    //launchLevel4();
-
+    //launchCredit();
     launchLevelMenu();
    //launchStart();
     
@@ -53,7 +54,10 @@ function launchStart(){
     start.launch();
 }
 
-
+function launchCredit(){
+    
+    credit.launch();
+}
 
 function setcountPlayer1(){
     winCountPlayer1++;
@@ -61,9 +65,10 @@ function setcountPlayer1(){
 function setcountPlayer2(){
     winCountPlayer2++;
 }
+
  
 // Exportez toutes les fonctions d'un coup
-export { Main, launchEnd, launchLevel2, launchLevel3, launchLevel4,setcountPlayer1,setcountPlayer2,launchLevelMenu,launchStart,winCountPlayer1,winCountPlayer2 };
+export { Main, launchEnd, launchLevel2, launchLevel3, launchLevel4,setcountPlayer1,setcountPlayer2,launchLevelMenu,launchStart,launchCredit,winCountPlayer1,winCountPlayer2 };
 
 
 // Exécute la fonction principale
