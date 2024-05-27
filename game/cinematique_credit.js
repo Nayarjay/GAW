@@ -91,7 +91,8 @@ function launch(){
 function loadNextLevel(){
     
     killLevel();
-    sceneManager.launchLevelMenu();
+    location.reload();
+    //sceneManager.launchLevelMenu();
 }
 
 function killLevel(player){

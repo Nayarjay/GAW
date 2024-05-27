@@ -68,7 +68,7 @@ function displayMenu(){
     
     // Création du texte en haut de la page
     const headerText = new BABYLON.GUI.TextBlock();
-    headerText.text = "Les Jeux Olympiques Maudits";
+    headerText.text = "The Cursed Olympic Games";
     headerText.color = "black";
     headerText.fontSize = 100;
     headerText.fontFamily = "UnifrakturCook";
