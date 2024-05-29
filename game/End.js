@@ -12,6 +12,10 @@ var createScene = function () {
     // Ajoutez une lumière
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
     var camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(0, 4, -12.5), scene);
+    camera.attachControl();
+    
+    let menu = new CustomModels(scene);
+    menu.CreateMenu3dScene(-44.927,-1.197,61.948);
 
     //camera.attachControl();
     if(sceneManager.winCountPlayer1 > sceneManager.winCountPlayer2){
@@ -160,7 +164,7 @@ function defaultLoadingScreen(){
     scene.executeWhenReady(function () {
         setTimeout(function () {
             engine.hideLoadingUI();
-            displayControlUI();
+            //displayControlUI();
         }, 5000); // 5000 millisecondes = 5 secondes
     });
 

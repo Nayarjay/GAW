@@ -13,8 +13,7 @@ let winCountPlayer2 =0;
 // Fonctions principales
 function Main() {
     
-    // Appelez la fonction "launch" du module "level2" pour lancer la scène 2
-    
+
     //launchEnd();
    
     //launchLevel2();
