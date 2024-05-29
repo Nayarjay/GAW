@@ -1,4 +1,5 @@
 // Importez les modules "scene1.js" et "scene2.js" pour accéder à leurs fonctionnalités
+import * as levelSwimming from './sceneSwiming.js';
 import * as start from './cinematique.js';
 import * as end from './End.js';
 import * as scene2 from './scene2.js'
@@ -18,8 +19,9 @@ function Main() {
    
     //launchLevel2();
    //launchLevel3();
-   //launchLevel4();
+    //launchLevel4();
     //launchCredit();
+    //launchSwimingLevel();
     launchLevelMenu();
    //launchStart();
     
@@ -57,6 +59,11 @@ function launchStart(){
 function launchCredit(){
     
     credit.launch();
+}
+function launchSwimingLevel(){
+    levelSwimming.launch();
+    
+  
 }
 
 function setcountPlayer1(){

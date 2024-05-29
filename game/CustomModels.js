@@ -825,6 +825,40 @@ export class CustomModels {
     
             return { boundingBox };
         }
+
+        
+CreatePlateformlevel3(x, y, z,scene) {
+    let tree;
+    let boundingBox;
+    let tronc;
+
+    BABYLON.SceneLoader.ImportMesh("", "./models/", "swimingPool.glb",this.scene, (meshes) => {
+        console.log("Chargement réussi plateform level2", meshes);
+    
+        let mesh = meshes[0];
+        //tronc = meshes[1];
+        mesh.name ="colision"
+        
+    
+        mesh.position = new BABYLON.Vector3(x, y, z); // Positionne l'arbre aux 
+        
+        
+        let i =1;
+        while( i <  meshes.length){
+            
+            var troncAggregate =new BABYLON.PhysicsAggregate(meshes[i], BABYLON.PhysicsShapeType.MESH, { mass: 0 }, this.cene);
+            i++
+        }
+    
+    
+    }, undefined, undefined, ".glb");
+
+
+
+    return { boundingBox };
+}
+
+
         
 
 
