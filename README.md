@@ -35,7 +35,7 @@ Développeur 1: Mohamed rayan BOUDIBA | Pseudo Github Nayarjay: https://github.c
 **Notre jeux ce compose de 7 parties :**
 
 - Un menu principal
-- Les Crédits avec la liste des membres du groupe et de leurs contributions, ainsi que les remerciements aux contributeurs
+- Les Crédits avec la liste des membres du groupe leurs contributions, ainsi que les remerciements aux contributeurs
 - Une cinématique textuelle expliquant l'histoire du jeu
 - Pour le premier niveau, une descente de ski
 - Pour le deuxième niveau, une course à pied (sprint)
