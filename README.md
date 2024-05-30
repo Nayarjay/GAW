@@ -22,7 +22,7 @@ Développeur 1: Mohamed rayan BOUDIBA | Pseudo Github Nayarjay: https://github.c
 
 # Fonctionnalités:
 
-**Notre jeu est jouable en**  :
+**Notre jeu est jouable**  :
 - À deux joueurs en versus sur un même clavier en écran scindé. 
 - En QWERTY ET AZERTY.
 - Sur Firefox (préférence),Chrome ,Edge.
