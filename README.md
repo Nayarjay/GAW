@@ -35,8 +35,8 @@ Développeur 1: Mohamed rayan BOUDIBA | Pseudo Github Nayarjay: https://github.c
 **Notre jeux ce compose de 4 parties :**
 
 - Un menu principal
-- Une cinématique textuelle expliquant l'histoire du jeu
 - Les Crédits avec la liste des membres du groupe et de leurs contributions, ainsi que les remerciements aux contributeurs
+- Une cinématique textuelle expliquant l'histoire du jeu
 - Pour le premier niveau, une descente de ski
 - Pour le deuxième niveau, une course à pied (sprint)
 - Pour le troisième niveau, une compétition de bowling
@@ -63,7 +63,7 @@ yousra.medjidel@etu.univ-amu.fr <br>
 https://github.com/Nayarjay/GAW
 # Lien de la vidéo d'explication technique
 [![Watch the video](https://img.youtube.com/vi/caxi4AppGNk/maxresdefault.jpg)](https://youtu.be/caxi4AppGNk)
-**Vidéo beta du jeux :** 
+**Vidéo beta du jeux :**<br>
 https://youtu.be/g4IByEaSZq0?si=3rhfqW0HwvzXLyhE
 
 # Lien de la documentation technique en PDF 
